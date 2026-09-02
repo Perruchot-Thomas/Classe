@@ -47,3 +47,4 @@ Feel free to check [our documentation](https://docs.astro.build) or jump into ou
 
 nom : Perruchot
 prenom : Thomas
+url : https://r312-tp1-thomas-perruchot.netlify.app
