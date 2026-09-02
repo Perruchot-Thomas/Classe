@@ -1,14 +1,8 @@
 ---
-// 1. On importe le composant qu'on vient de réparer
 import PlotFigure from '../components/PlotFigure.astro';
-
-// 2. On importe la librairie Observable Plot
 import * as Plot from "@observablehq/plot";
-
-// 3. On importe ton fichier de données local
 import penguinsData from '../data/penguins.json';
 
-// 4. On nettoie les données : on enlève les "NaN" et on s'assure que ce sont des nombres
 const cleanPenguins = penguinsData
   .filter((p: any) => p.culmen_length_mm !== "NaN" && p.culmen_depth_mm !== "NaN")
   .map((p: any) => ({
@@ -17,17 +11,17 @@ const cleanPenguins = penguinsData
     culmen_depth_mm: Number(p.culmen_depth_mm)
   }));
 
-// 5. On configure le graphique (exactement comme dans tes exemples)
+
 const options = {
   grid: true,
   inset: 10,
-  color: { legend: true }, // Affiche la légende des espèces
+  color: { legend: true },
   marks: [
-    Plot.frame(), // Ajoute un cadre autour du graphique
+    Plot.frame(),
     Plot.dot(cleanPenguins, { 
       x: "culmen_length_mm", 
       y: "culmen_depth_mm", 
-      stroke: "species" // La couleur des points dépend de l'espèce
+      stroke: "species"
     })
   ]
 };
@@ -41,9 +35,6 @@ const options = {
   <body style="max-width: 800px; margin: 0 auto; font-family: sans-serif; padding: 2rem;">
     
     <h1>Les Pingouins de Palmer 🐧</h1>
-    <p>Graphique de points généré côté serveur avec JSDOM et Observable Plot.</p>
-    
-    <!-- On appelle notre composant en lui passant les options -->
     <PlotFigure options={options} />
     
   </body>
