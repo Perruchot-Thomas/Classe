@@ -29,6 +29,11 @@ const options = {
     <title>Barres - Pingouins</title>
   </head>
   <body style="max-width: 800px; margin: 0 auto; font-family: sans-serif; padding: 2rem;">
+    <nav style="margin-bottom: 2rem; padding-bottom: 1rem; border-bottom: 2px solid #eee;">
+      <strong>[ Points ]</strong> | 
+      <a href="/barres" style="text-decoration: none; color: #0070f3;">Barres</a> | 
+      <a href="/lignes" style="text-decoration: none; color: #0070f3;">Lignes</a>
+    </nav>
     <h1>Graphique de Barres : Nombre de Pingouins par Espèce 📊🐧</h1>
     
     <PlotFigure options={options} />
